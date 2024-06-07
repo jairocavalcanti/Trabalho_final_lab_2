@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PessoaManager {
-    private static final String FILE_NAME = "pessoas_1.txt";
+    private static final String FILE_NAME = "jogos.txt";
 
     public void addPessoa(Pessoa pessoa) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
