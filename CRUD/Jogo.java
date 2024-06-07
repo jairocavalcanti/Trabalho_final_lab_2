@@ -1,4 +1,4 @@
-package Crud_2;
+package CRUD;
 
 import java.io.Serializable;
 

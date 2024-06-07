@@ -1,11 +1,11 @@
-package Crud_2;
+package CRUD;
 
 import java.util.Scanner;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PessoaManager {
+public class CRUD_Cliente {
     private static final String FILE_NAME = "jogos.txt";
 
     public void addPessoa(Pessoa pessoa) throws IOException {
@@ -54,7 +54,7 @@ public class PessoaManager {
 
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
-        PessoaManager pm = new PessoaManager();
+        CRUD_Cliente pm = new CRUD_Cliente();
 
         try {
 

@@ -1,4 +1,4 @@
-package Crud_2;
+package CRUD;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class MenuPrincipalJogo {
+public class CRUD_Jogo {
     
     public static final String ARQUIVO_JOGOS = "jogos.txt";
     private static Scanner entrada = new Scanner(System.in);
