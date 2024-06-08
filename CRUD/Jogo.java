@@ -43,11 +43,8 @@ public class Jogo implements Serializable {
         this.plataforma = plataforma;
     }
 
-    public Jogo() {
-        this.nome = "";
-        this.genero = "";
-        this.codigo = 0;
-        this.plataforma = "";
+    public Jogo(){
+        
     }
 
     // Getters e setters
