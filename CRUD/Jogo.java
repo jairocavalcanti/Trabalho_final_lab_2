@@ -25,29 +25,28 @@ import java.io.Serializable;
    Objetos podem ser armazenados em cache de maneira eficiente e recuperados quando necessário.
  */
 
-
 public class Jogo implements Serializable {
-    
-    //Atributos da classe jogo
+
+    // Atributos da classe jogo
 
     private String nome;
     private String genero;
     private int codigo;
     private String plataforma;
 
-    //Construtores da classe jogo
+    // Construtores da classe jogo
 
     public Jogo(String nome, String genero, int codigo, String plataforma) {
         this.nome = nome;
         this.genero = genero;
         this.codigo = codigo;
-        this.plataforma = plataforma; 
+        this.plataforma = plataforma;
     }
 
     public Jogo() {
         this.nome = "";
         this.genero = "";
-        this.codigo= 0;
+        this.codigo = 0;
         this.plataforma = "";
     }
 
@@ -85,18 +84,17 @@ public class Jogo implements Serializable {
         this.plataforma = plataforma;
     }
 
-    //To string da classe
-    @Override
-    public String toString() {
-        return nome + "-" + genero + "-" + codigo
-                + "-" + plataforma + "-";
-    }
+    // Método para transformar uma linha de strings em um objeto do tipo Jogo(),
+    // útil para transformar uma linha do arquivo txt contendo os jogos em objeto
 
-    //Método para transformar uma linha de strings em um objeto do tipo Jogo(), útil para transformar uma linha do arquivo txt contendo os jogos em objeto
-
-    public static Jogo fromString(String str){
+    public static Jogo fromString(String str) {
         String[] partes = str.split("-");
         return new Jogo(partes[0], partes[1], Integer.parseInt(partes[2]), partes[3]);
+    }
+
+    @Override
+    public String toString() {
+        return nome + "-" + genero + "-" + codigo + "-" + plataforma + "-";
     }
 
 }
