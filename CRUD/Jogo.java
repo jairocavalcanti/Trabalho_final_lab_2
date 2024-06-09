@@ -33,18 +33,20 @@ public class Jogo implements Serializable {
     private String genero;
     private int codigo;
     private String plataforma;
+    private double valor;
 
     // Construtores da classe jogo
 
-    public Jogo(String nome, String genero, int codigo, String plataforma) {
+    public Jogo(String nome, String genero, int codigo, String plataforma, double valor) {
         this.nome = nome;
         this.genero = genero;
         this.codigo = codigo;
         this.plataforma = plataforma;
+        this.valor = valor;
     }
 
-    public Jogo(){
-        
+    public Jogo() {
+
     }
 
     // Getters e setters
@@ -81,17 +83,25 @@ public class Jogo implements Serializable {
         this.plataforma = plataforma;
     }
 
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
     // Método para transformar uma linha de strings em um objeto do tipo Jogo(),
     // útil para transformar uma linha do arquivo txt contendo os jogos em objeto
 
     public static Jogo fromString(String str) {
         String[] partes = str.split("-");
-        return new Jogo(partes[0], partes[1], Integer.parseInt(partes[2]), partes[3]);
+        return new Jogo(partes[0], partes[1], Integer.parseInt(partes[2]), partes[3], Double.parseDouble(partes[4]));
     }
 
     @Override
     public String toString() {
-        return nome + "-" + genero + "-" + codigo + "-" + plataforma + "-";
+        return nome + "-" + genero + "-" + codigo + "-" + plataforma + "-" + valor;
     }
 
 }
