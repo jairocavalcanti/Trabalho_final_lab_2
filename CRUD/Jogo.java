@@ -44,7 +44,7 @@ public class Jogo implements Serializable {
     }
 
     public Jogo(){
-        
+
     }
 
     // Getters e setters
