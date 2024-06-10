@@ -7,6 +7,7 @@ import java.io.*;
 
 public class Principal {
 
+    private static String ctt;
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         Random rand = new Random();
@@ -22,14 +23,15 @@ public class Principal {
                 while (i != true) {
 
                     if (opcao == 1) {
-
+ 
+                        System.out.println("Logado como: " + ctt);
                         System.out.println("Insira a operação que deseja realizar: " +
                                 "\n1 - Cadastro // \n" +
-                                "2 - Visualizar Cadastros // \n" +
+                                "2 - Visualizar Cadastros  // \n" +
                                 "3 - Alterar Cadastro // \n" +
-                                "4 - Excluir Cadastro // \n" + 
-                                "0 - Sair \n"
-                                );
+                                "4 - Excluir Cadastro // \n" +
+                                "5 - Login // \n" +
+                                "0 - Sair \n");
 
                         System.out.printf(">>");
                         String escolha = scanner.next();
@@ -75,7 +77,24 @@ public class Principal {
 
                             case "3":
 
+                                break;
 
+                            case "5":
+
+                            System.out.println("Insira o nome do login:");
+                            String nome_1 = scanner.next();
+
+                            List<Cliente> clientes_1 = pm.getPessoas();
+                            for (Cliente p : clientes_1) {
+                                if(p.getNome().equals(nome_1)){
+                                    ctt = p.getNome();
+                                    break;
+                                }else{
+                                    System.out.println("Nome não existente nos cadastros !");
+                                }
+                            }
+                            System.out.println(ctt);
+                            System.out.println("------------------------------- \n");
 
                                 break;
 
@@ -91,21 +110,20 @@ public class Principal {
                                 System.out.println("Cadastro cliente encerrado... \n");
                                 i = true;
 
-                            //default:
+                                // default:
 
-                             //   System.out.println("Insira uma informação válida! ");
-                             //   break;
+                                // System.out.println("Insira uma informação válida! ");
+                                // break;
                         }
 
                     } else {
                         System.out.println("Insira a operação que deseja realizar: " +
-                        "\n1 - Cadastro_Jogos // \n" +
-                        "2 - Visualizar_Jogos // \n" +
-                        "3 - Alterar_Jogos// \n" +
-                        "4 - Excluir_Jogos// \n" + 
-                        "0 - Sair \n"
-                        );
-                        
+                                "\n1 - Cadastro_Jogos // \n" +
+                                "2 - Visualizar_Jogos // \n" +
+                                "3 - Alterar_Jogos// \n" +
+                                "4 - Excluir_Jogos// \n" +
+                                "0 - Sair \n");
+
                     }
 
                 }
@@ -113,10 +131,9 @@ public class Principal {
                 System.out.println("Ocorreu um erro: " + e.getMessage());
                 e.printStackTrace();
             }
-            
-        }
-    scanner.close();    
-    }
-   
-}
 
+        }
+        scanner.close();
+    }
+
+}

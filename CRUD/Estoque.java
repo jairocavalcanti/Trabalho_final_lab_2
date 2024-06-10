@@ -7,10 +7,6 @@ public class Estoque extends Jogo {
     private int subID;
     private int status;
 
-    public Estoque() {
-
-    };
-
     // Contrutores de classe estoque
     public Estoque(String nome, String genero, int codigo, String plataforma, double valor, int quantEstoque, int subID,
             int status) {
@@ -25,6 +21,10 @@ public class Estoque extends Jogo {
         this.subID = subID;
         this.status = status;
     }
+
+    public Estoque() {
+
+    };
 
     // Getters e Setters
     public int getQuantEstoque() {

@@ -26,6 +26,17 @@ public class ClienteController {
         return clientes;
     }
 
+/* 
+    public void checarCadastro(int id, String email ) throws FileNotFoundException, IOException{
+        List<Cliente> clientes = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                clientes.add(Cliente.fromString(line));
+            }
+        }
+    }
+*/
     public void updatePessoa(int id, Cliente updatedPessoa) throws IOException {
         List<Cliente> clientes = getPessoas();
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
