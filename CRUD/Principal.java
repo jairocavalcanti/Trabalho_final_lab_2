@@ -45,7 +45,7 @@ public class Principal {
                                     cont++;
                                     System.out.println("# -" + (cont) + " " + p);
                                 }
-                                System.out.println("------------------------------- \n");
+                                System.out.println("--------------------------------- \n");
                                 break;
 
                             case "2":
@@ -72,7 +72,7 @@ public class Principal {
                     } else {
 
                         System.out.println("Insira a operação que deseja realizar: " +
-                                "1 - \nVisualização de jogos // \n" +
+                                "\n1 - Visualização de jogos // \n" +
                                 "2 - Pesquisa jogo por nome // \n" +
                                 "3 - Comprar jogo // \n");
 
@@ -99,19 +99,18 @@ public class Principal {
                                 String nome = scanner.next();
 
                                 List<Jogo> jogos_1 = pm.getJogo_por_nome(nome);
-                                System.out.println("\n -- JOGOS DISPONIVEIS -- ");
                                 int cont_1 = 0;
                                 for (Jogo j : jogos_1) {
                                     cont_1++;
                                     System.out.println("# -" + (cont_1) + " " + j);
                                 }
-                                System.out.println("------------------------------- \n");
+                                System.out.println("---------------------------------- \n");
 
                                 break;
 
                             case "3":
 
-                            
+
                                 break;
 
                             default:

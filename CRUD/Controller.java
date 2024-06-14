@@ -10,7 +10,7 @@ public class Controller {
     private static final String FILE_NAME_JOGOS = "jogos.txt";
 
 
-    public void addPessoa(Cliente pessoa) throws IOException {
+    public void addPessoa(Cliente pessoa) throws Exception {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
             writer.write(pessoa.toString());
             writer.newLine();
@@ -39,7 +39,7 @@ public class Controller {
         }
     }
 */
-    public void updatePessoa(int id, Cliente updatedPessoa) throws IOException {
+    public void updatePessoa(int id, Cliente updatedPessoa) throws Exception {
         List<Cliente> clientes = getPessoas();
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
             for (Cliente p : clientes) {
@@ -53,7 +53,7 @@ public class Controller {
         }
     }
 
-    public void deletePessoa(int id) throws IOException {
+    public void deletePessoa(int id) throws Exception {
         List<Cliente> clientes = getPessoas();
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
             for (Cliente p : clientes) {
@@ -75,7 +75,7 @@ public class Controller {
     }*/
     
     
-    public List<Jogo> getJogos() throws IOException {
+    public List<Jogo> getJogos() throws Exception {
         List<Jogo> jogos = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME_JOGOS))) {
             String line;
@@ -86,18 +86,27 @@ public class Controller {
         return jogos;
     }
 
-    public List<Jogo> getJogo_por_nome(String nome) throws IOException {
+    public List<Jogo> getJogo_por_nome(String nome) throws Exception {
         List<Jogo> jogos = new ArrayList<>();
+        boolean jogoencontrado = false;
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME_JOGOS))) {
             String line;
+            int cont = 0;
             while ((line = reader.readLine()) != null) {
                 Jogo jogo = Jogo.fromString(line);
                 if(jogo.getNome().equals(nome)){
-                    jogos.add(jogo);
-                    System.out.println(jogo.getNome());
+                    System.out.println("\n -- JOGO DISPONIVEL ! -- ");
+                    jogos.add(jogo); 
+                    jogoencontrado = true;
+                    break;
                 }
             }
         }
+       
+        if (!jogoencontrado) {
+            System.out.println("Jogo não encontrado nos arquivos !");
+        }
+       
         return jogos;
     }
 
