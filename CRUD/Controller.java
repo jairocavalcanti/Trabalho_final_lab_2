@@ -17,7 +17,7 @@ public class Controller {
         }
     }
 
-    public List<Cliente> getPessoas() throws IOException {
+    public List<Cliente> getPessoas() throws Exception {
         List<Cliente> clientes = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
             String line;
