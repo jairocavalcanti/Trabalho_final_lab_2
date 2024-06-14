@@ -66,12 +66,12 @@ public class Jogo {
         this.valor = valor;
     }
 
-    /* 
+    
     // Método para transformar uma linha de strings em um objeto do tipo Jogo(),
     // útil para transformar uma linha do arquivo txt contendo os jogos em objeto
 
     public static Jogo fromString(String str) {
-        String[] partes = str.split("-");
+        String[] partes = str.split(",");
         return new Jogo(partes[0], partes[1], Integer.parseInt(partes[2]), partes[3], Double.parseDouble(partes[4]));
     }
 
@@ -79,5 +79,5 @@ public class Jogo {
     public String toString() {
         return nome + "-" + genero + "-" + codigo + "-" + plataforma + "-" + valor;
     }
-    */
+    
 }

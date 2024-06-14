@@ -12,12 +12,12 @@ public class Principal {
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         Random rand = new Random();
-        ClienteController pm = new ClienteController();
+        Controller pm = new Controller();
         boolean o = true;
-        
+
         while (o == true) {
             boolean i = false;
-            System.out.println("Escolha uma opção de cadastro // 1 - Cliente // 2 - Jogos  ");
+            System.out.println("Escolha uma opção de cadastro // 1 - ADM // 2 - Cliente");
             int opcao = scanner.nextInt();
 
             try {
@@ -70,28 +70,24 @@ public class Principal {
                         }
 
                     } else {
-                        System.out.println("Logado como: " + ctt);
-                        System.out.println("Insira a operação que deseja realizar: " +
-                                "\n1 - Login // \n" +
-                                "2 - Cadastrar \n");
-                        System.out.printf(">>");
-                        String opcao_1 = scanner.next();
 
-                        switch (opcao_1) {
+                        System.out.println("Insira a operação que deseja realizar: " +
+                                "1 - \nVisualização de jogos // \n" +
+                                "2 - Pesquisa jogo por nome // \n" +
+                                "3 - Comprar jogo // \n");
+
+                        System.out.printf(">>");
+                        String opcao_2 = scanner.next();
+
+                        switch (opcao_2) {
                             case "1":
 
-                                System.out.println("Insira o nome do login:");
-                                String nome_1 = scanner.next();
-
-                                List<Cliente> clientes_1 = pm.getPessoas();
-                                for (Cliente p : clientes_1) {
-                                    if (p.getNome().equals(nome_1)) {
-                                        ctt = p.getNome();
-                                        break;
-                                    } else {
-                                        System.out.println("Nome não existente nos cadastros !");
-                                        break;
-                                    }
+                                List<Jogo> jogos = pm.getJogos();
+                                System.out.println("\n -- JOGOS DISPONIVEIS -- ");
+                                int cont = 0;
+                                for (Jogo j : jogos) {
+                                    cont++;
+                                    System.out.println("# -" + (cont) + " " + j);
                                 }
                                 System.out.println("------------------------------- \n");
 
@@ -99,43 +95,28 @@ public class Principal {
 
                             case "2":
 
-                                System.out.println("\n-- CADASTRE-SE AQUI --");
-
-                                int id = rand.nextInt(1000);
-
-                                System.out.printf("Insira o nome: ");
+                                System.out.println("Insira o nome do jogo que deseja achar: ");
                                 String nome = scanner.next();
 
-                                System.out.printf("Insira o endereço: ");
-                                String endereço = scanner.next();
+                                List<Jogo> jogos_1 = pm.getJogo_por_nome(nome);
+                                System.out.println("\n -- JOGOS DISPONIVEIS -- ");
+                                int cont_1 = 0;
+                                for (Jogo j : jogos_1) {
+                                    cont_1++;
+                                    System.out.println("# -" + (cont_1) + " " + j);
+                                }
+                                System.out.println("------------------------------- \n");
 
-                                System.out.printf("Insira o email: ");
-                                String email = scanner.next();
-
-                                System.out.printf("Insira a idade: ");
-                                int idade = scanner.nextInt();
-
-                                pm.addPessoa(new Cliente(nome, endereço, email, idade, id));
-
-                                System.out.println("Cliente cadastrado com sucesso!");
-
-                                System.out.println("\n");
-
-                                break;
-
-                            case "0":
-                                System.out.println("Seleção de jogos encerrada \n");
-                                i = true;
                                 break;
 
                             default:
-                                System.out.println("Insira uma informação válida!");
 
                                 break;
                         }
-                    }
 
+                    }
                 }
+
             } catch (Exception e) {
                 System.out.println("Ocorreu um erro: " + e.getMessage());
                 e.printStackTrace();

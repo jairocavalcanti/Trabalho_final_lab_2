@@ -6,7 +6,7 @@ public class Estoque extends Jogo {
     private int quantEstoque;
     private int subID;
     private int status;
-
+   
     // Contrutores de classe estoque
     public Estoque(String nome, String genero, int codigo, String plataforma, double valor, int quantEstoque, int subID,
             int status) {

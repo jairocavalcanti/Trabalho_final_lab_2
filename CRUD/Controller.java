@@ -4,9 +4,11 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClienteController {
+public class Controller {
     
     private static final String FILE_NAME = "pessoas.txt";
+    private static final String FILE_NAME_JOGOS = "jogos.txt";
+
 
     public void addPessoa(Cliente pessoa) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
@@ -64,5 +66,26 @@ public class ClienteController {
             }
         }
     }
+
+  /*   public void addjogo_no_estoque(Jogo es) throws IOException {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
+            writer.write(es.toString());
+            writer.newLine();
+        }
+    }*/
+    
+    
+    public List<Jogo> getJogos() throws IOException {
+        List<Jogo> jogos = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME_JOGOS))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                jogos.add(Jogo.fromString(line));
+            }
+        }
+        return jogos;
+    }
+
+ 
 
 }
