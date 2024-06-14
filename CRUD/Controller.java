@@ -95,7 +95,6 @@ public class Controller {
                 if(jogo.getNome().equals(nome)){
                     jogos.add(jogo);
                     System.out.println(jogo.getNome());
-                    break;
                 }
             }
         }
