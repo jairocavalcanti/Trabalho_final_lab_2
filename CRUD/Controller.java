@@ -86,6 +86,20 @@ public class Controller {
         return jogos;
     }
 
- 
+    public List<Jogo> getJogo_por_nome(String nome) throws IOException {
+        List<Jogo> jogos = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME_JOGOS))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                Jogo jogo = Jogo.fromString(line);
+                if(jogo.getNome().equals(nome)){
+                    jogos.add(jogo);
+                    System.out.println(jogo.getNome());
+                    break;
+                }
+            }
+        }
+        return jogos;
+    }
 
 }
