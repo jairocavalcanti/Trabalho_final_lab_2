@@ -91,7 +91,6 @@ public class Controller {
         boolean jogoencontrado = false;
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME_JOGOS))) {
             String line;
-            int cont = 0;
             while ((line = reader.readLine()) != null) {
                 Jogo jogo = Jogo.fromString(line);
                 if(jogo.getNome().equals(nome)){
