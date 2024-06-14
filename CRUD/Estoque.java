@@ -9,8 +9,8 @@ public class Estoque extends Jogo {
 
     // Contrutores de classe estoque
     public Estoque(String nome, String genero, int codigo, String plataforma, double valor, int quantEstoque, int subID,
-            int status) {
-        super(nome, genero, codigo, plataforma, valor);
+            int status, int quantidade) {
+        super(nome, genero, codigo, plataforma, valor, quantidade);
         this.quantEstoque = quantEstoque;
         this.subID = subID;
         this.status = status;

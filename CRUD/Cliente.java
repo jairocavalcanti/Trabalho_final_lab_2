@@ -1,18 +1,18 @@
 package CRUD;
 
 public class Cliente {
-    
+
     private String nome;
     private String endereco;
     private String email;
     private int idade;
     private int ID;
 
-    public Cliente(){
+    public Cliente() {
 
     }
 
-    public Cliente(String nome, String endereco, String email, int idade,int id) {
+    public Cliente(String nome, String endereco, String email, int idade, int id) {
         this.nome = nome;
         this.endereco = endereco;
         this.email = email;
@@ -61,7 +61,6 @@ public class Cliente {
     public void setID(int iD) {
         ID = iD;
     }
-    
 
     public static Cliente fromString(String str) {
         String[] parts = str.split(",");
@@ -74,5 +73,3 @@ public class Cliente {
     }
 
 }
-
-
