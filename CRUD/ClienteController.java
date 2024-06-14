@@ -58,6 +58,8 @@ public class ClienteController {
                 if (p.getID() != id) {
                     writer.write(p.toString());
                     writer.newLine();
+                }else{
+                    System.out.println("Cliente excluido com sucesso!");
                 }
             }
         }
