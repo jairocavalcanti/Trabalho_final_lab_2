@@ -132,31 +132,41 @@ public class ClienteController {
         for (Cliente c : clientes) {
             if (c.getID() == id) {
 
-
-                System.out.println("ID existente no sistema!");
                 System.out.println("Nome associado ao ID: " + c.getNome());
 
-                /*
-                 * System.out.printf("Insira o novo nome: ");
-                 * String nome = scanner.next();
-                 * 
-                 * System.out.printf("Insira a nova senha: ");
-                 * String senha = scanner.next();
-                 * 
-                 * System.out.printf("Insira o novo endereço: ");
-                 * String endereco = scanner.next();
-                 * 
-                 * System.out.printf("Insira o novo email: ");
-                 * String gmail = scanner.next();
-                 * 
-                 * System.out.printf("Insira a nova idade: ");
-                 * int idade = scanner.nextInt();
-                 * 
-                 * Cliente updatedCliente = new Cliente(nome, endereco, gmail, senha, idade,
-                 * id);
-                 * 
-                 * updatePessoa(id, updatedCliente);
-                 */
+                String nome = " ";
+
+                System.out.printf("Insira o novo nome // 1 - Manter nome");
+                String escolha_1 = scanner.next();
+                if (escolha_1.equals("1")) {
+                    nome = c.getNome();
+                } else {
+                    nome = scanner.next();
+                }
+
+                String senha = " ";
+
+                System.out.printf("Insira a nova senha // 1 - Manter senha");
+                String escolha_2 = scanner.next();
+                if (escolha_2.equals("1")){
+                    senha = c.getSenha();
+                }else{
+                    senha = scanner.next();
+                }
+
+                System.out.printf("Insira o novo endereço: ");
+                String endereco = scanner.next();
+
+                System.out.printf("Insira o novo email: ");
+                String gmail = scanner.next();
+
+                System.out.printf("Insira a nova idade: ");
+                int idade = scanner.nextInt();
+
+                Cliente updatedCliente = new Cliente(nome, endereco, gmail, senha, idade, id);
+
+                updatePessoa(id, updatedCliente);
+
             } else {
                 System.out.println("ID nao existente no sistema!");
             }
