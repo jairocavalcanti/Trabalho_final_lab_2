@@ -65,9 +65,9 @@ public class JogoController {
 
         if (jogo.getQuantidade() > 0) {
             jogo.setQuantidade(jogo.getQuantidade() - 1);
-            System.out.println("Agora restam apenas " + jogo.getQuantidade() + " cópias do jogo " + jogo.getNome());
+            System.out.println("Agora restam apenas " + jogo.getQuantidade() + " cópias do jogo " + jogo.getNome() + "\n");
         } else {
-            System.out.println("Cópias nao disponiveis !!");
+            System.out.println("Cópias nao disponiveis !! \n");
         }
         // Reescreve o arquivo com as atualizações
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME_JOGOS))) {
@@ -106,7 +106,7 @@ public class JogoController {
         System.out.println("---------------------------------- \n");
     }
 
-    public void retirar_jogo(Scanner scanner , JogoController jc) throws Exception{
+    public void retirar_jogo(Scanner scanner, JogoController jc) throws Exception {
         System.out.println("-- MENU DE COMPRAS --");
 
         List<Jogo> jogos_2 = jc.getJogos();

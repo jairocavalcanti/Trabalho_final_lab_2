@@ -29,7 +29,7 @@ public class Principal {
                     // MENU ADMIN
                     if (opcao == 1) {
                         while (verifadm != false) {
-                            System.out.println("Insira senha de administrador:  0 - voltar");
+                            System.out.println("Insira senha de administrador: ");
                             String senha = scanner.next();
 
                             if (senha.equals(senhaadm)) {
@@ -67,7 +67,7 @@ public class Principal {
                                 break;
 
                             default:
-                                System.out.println("Insira uma informação válida! ");
+                                System.out.println("Insira uma informação válida! \n");
                                 break;
                         }
                         // MENU CLIENTE
@@ -106,18 +106,14 @@ public class Principal {
                                     jc.retirar_jogo(scanner, jc);
                                     break;
 
-                                case "4":
-                          
-                                    break;
-
                                 case "0":
-                                    System.out.println("Encerrado... \n");
+                                    System.out.println("Menu cliente Encerrado... \n");
                                     verificacao = false;
                                     i = true;
                                     break;
 
                                 default:
-
+                                    System.out.println("Insira uma informação válida! \n");
                                     break;
                             }
 

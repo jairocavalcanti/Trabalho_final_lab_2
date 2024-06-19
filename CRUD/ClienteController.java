@@ -58,10 +58,10 @@ public class ClienteController {
     }
 
     public boolean verificacao_de_usuario(Scanner scanner, ClienteController cc, boolean verif) throws Exception {
-        System.out.println("Insira o nome do login:");
+        System.out.printf("Insira o nome do login:");
         String nome_1 = scanner.next();
 
-        System.out.println("Insira a senha: ");
+        System.out.printf("Insira a senha: ");
         String senha_1 = scanner.next();
 
         List<Cliente> clientes_1 = cc.getPessoas();
@@ -102,6 +102,8 @@ public class ClienteController {
 
         cc.addPessoa(cliente);
 
+        System.out.println("------------------------------- \n");
+
     }
 
     public void mostrar_cadastros(ClienteController cc) throws Exception {
@@ -141,6 +143,7 @@ public class ClienteController {
                 if (escolha_1.equals("2")) {
                     nome = c.getNome();
                 } else {
+                    System.out.printf("Novo nome: ");
                     nome = scanner.next();
                 }
 
@@ -151,6 +154,7 @@ public class ClienteController {
                 if (escolha_2.equals("2")) {
                     senha = c.getSenha();
                 } else {
+                    System.out.printf("Nova senha: ");
                     senha = scanner.next();
                 }
 
@@ -161,6 +165,7 @@ public class ClienteController {
                 if (escolha_3.equals("2")) {
                     endereco = c.getEndereco();
                 } else {
+                    System.out.printf("Novo endereço: ");
                     endereco = scanner.next();
                 }
 
@@ -171,6 +176,7 @@ public class ClienteController {
                 if (escolha_4.equals("2")) {
                     email = c.getEmail();
                 } else {
+                    System.out.printf("Novo email: ");
                     email = scanner.next();
                 }
 
@@ -180,6 +186,7 @@ public class ClienteController {
                 if (escolha_5.equals("2")) {
                     idade = c.getIdade();
                 } else {
+                    System.out.printf("Nova idade: ");
                     idade = scanner.nextInt();
                 }
 
@@ -187,8 +194,12 @@ public class ClienteController {
 
                 updatePessoa(id, updatedCliente);
 
+                System.out.println("--------------------------------- \n");
+
             } else {
                 System.out.println("ID nao existente no sistema!");
+
+                System.out.println("--------------------------------- \n");
             }
         }
 
