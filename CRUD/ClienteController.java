@@ -136,9 +136,9 @@ public class ClienteController {
 
                 String nome = " ";
 
-                System.out.printf("Insira o novo nome // 1 - Manter nome");
+                System.out.printf("1 - Insira o novo nome // 2 - Manter nome ");
                 String escolha_1 = scanner.next();
-                if (escolha_1.equals("1")) {
+                if (escolha_1.equals("2")) {
                     nome = c.getNome();
                 } else {
                     nome = scanner.next();
@@ -146,24 +146,44 @@ public class ClienteController {
 
                 String senha = " ";
 
-                System.out.printf("Insira a nova senha // 1 - Manter senha");
+                System.out.printf("1 - Insira a nova senha // 2 - Manter senha ");
                 String escolha_2 = scanner.next();
-                if (escolha_2.equals("1")){
+                if (escolha_2.equals("2")) {
                     senha = c.getSenha();
-                }else{
+                } else {
                     senha = scanner.next();
                 }
 
-                System.out.printf("Insira o novo endereço: ");
-                String endereco = scanner.next();
+                String endereco = " ";
 
-                System.out.printf("Insira o novo email: ");
-                String gmail = scanner.next();
+                System.out.printf("1 - Insira o novo endereço // 2 - Manter endereço ");
+                String escolha_3 = scanner.next();
+                if (escolha_3.equals("2")) {
+                    endereco = c.getEndereco();
+                } else {
+                    endereco = scanner.next();
+                }
 
-                System.out.printf("Insira a nova idade: ");
-                int idade = scanner.nextInt();
+                String email = " ";
 
-                Cliente updatedCliente = new Cliente(nome, endereco, gmail, senha, idade, id);
+                System.out.printf("1 - Insira o novo email // 2 - Manter email ");
+                String escolha_4 = scanner.next();
+                if (escolha_4.equals("2")) {
+                    email = c.getEmail();
+                } else {
+                    email = scanner.next();
+                }
+
+                int idade = 0;
+                System.out.printf("1 - Insira a nova idade // 2 - Manter idade ");
+                String escolha_5 = scanner.next();
+                if (escolha_5.equals("2")) {
+                    idade = c.getIdade();
+                } else {
+                    idade = scanner.nextInt();
+                }
+
+                Cliente updatedCliente = new Cliente(nome, endereco, email, senha, idade, id);
 
                 updatePessoa(id, updatedCliente);
 
