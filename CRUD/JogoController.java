@@ -1,60 +1,16 @@
 package CRUD;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
-public class Controller {
+public class JogoController {
 
-    private static final String FILE_NAME = "pessoas.txt";
     private static final String FILE_NAME_JOGOS = "jogos.txt";
-
-    // METODOS PARA MANIPULAÇÃO DE PESSOAS
-    public void addPessoa(Cliente pessoa) throws Exception {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
-            writer.write(pessoa.toString());
-            writer.newLine();
-        }
-    }
-
-    public List<Cliente> getPessoas() throws Exception {
-        List<Cliente> clientes = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                clientes.add(Cliente.fromString(line));
-            }
-        }
-        return clientes;
-    }
-
-    public void updatePessoa(int id, Cliente updatedPessoa) throws Exception {
-        List<Cliente> clientes = getPessoas();
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
-            for (Cliente p : clientes) {
-                if (p.getID() == id) {
-                    writer.write(updatedPessoa.toString());
-                } else {
-                    writer.write(p.toString());
-                }
-                writer.newLine();
-            }
-        }
-    }
-
-    public void deletePessoa(int id) throws Exception {
-        List<Cliente> clientes = getPessoas();
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
-            for (Cliente p : clientes) {
-                if (p.getID() != id) {
-                    writer.write(p.toString());
-                    writer.newLine();
-                } else {
-                    System.out.println("Cliente excluido com sucesso!");
-                }
-            }
-        }
-    }
 
     // METODOS PARA MANIPULAÇAO DE JOGOS
     public List<Jogo> getJogos() throws Exception {
@@ -124,28 +80,50 @@ public class Controller {
         return jogos;
     }
 
-    /*
-     * public List<Jogo> comprar_jogo(String nome) throws Exception {
-     * List<Jogo> jogos = new ArrayList<>();
-     * try (BufferedReader reader = new BufferedReader(new
-     * FileReader(FILE_NAME_JOGOS))) {
-     * String line;
-     * int count = 0;
-     * while ((line = reader.readLine()) != null) {
-     * count++;
-     * Jogo jogo = Jogo.fromString(line);
-     * // int diminuidor = 1;
-     * if (count == Integer.parseInt(nome)) {
-     * jogo.setQuantidade(jogo.getQuantidade() - 1);
-     * System.out.println("Agora restam apenas " + jogo.getQuantidade() +
-     * " copias");
-     * }
-     * }
-     * 
-     * }
-     * 
-     * return jogos;
-     * }
-     */
+    public void mostrar_jogos(JogoController jc) throws Exception {
+        List<Jogo> jogos = jc.getJogos(); // sugestão: gameManager.getJogos()
+        System.out.println("\n -- JOGOS DISPONIVEIS -- ");
+        int cont = 0;
+        for (Jogo j : jogos) { // sugestão: Jogo jogo : jogos
+            cont++;
+            // System.out.println("# -" + (cont) + " " + j.getNome() + j.getGenero() +
+            // j.getQuantidade());
+            System.out.printf("# - " + cont++ + "," + j);
+        }
+        System.out.println("\n ------------------------------- \n");
+    }
+
+    public void pesquisar_jogo_por_nome(Scanner scanner, JogoController jc) throws Exception {
+        System.out.println("Insira o nome do jogo que deseja achar: ");
+        String nome = scanner.next();
+
+        List<Jogo> jogos_1 = jc.getJogo_por_nome(nome);
+        int cont_1 = 0;
+        for (Jogo j : jogos_1) {
+            cont_1++;
+            System.out.println("# -" + (cont_1) + " " + j);
+        }
+        System.out.println("---------------------------------- \n");
+    }
+
+    public void retirar_jogo(Scanner scanner , JogoController jc) throws Exception{
+        System.out.println("-- MENU DE COMPRAS --");
+
+        List<Jogo> jogos_2 = jc.getJogos();
+        System.out.println("\n -- JOGOS DISPONIVEIS -- ");
+        int cont_2 = 0;
+        for (Jogo j : jogos_2) {
+            cont_2++;
+            // System.out.println("# -" + (cont_2) + " " + j);
+            System.out.printf("# -" + (cont_2) + " " + j);
+        }
+        System.out.println("\n ------------------------------- \n");
+
+        System.out.println("Selecione uma opcao: ");
+        String nome_1 = scanner.next();
+
+        jc.comprar_jogo(nome_1);
+
+    }
 
 }

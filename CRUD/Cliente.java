@@ -5,17 +5,20 @@ public class Cliente {
     private String nome;
     private String endereco;
     private String email;
+    private String senha;
     private int idade;
     private int ID;
+    
 
     public Cliente() {
 
     }
 
-    public Cliente(String nome, String endereco, String email, int idade, int id) {
+    public Cliente(String nome, String endereco, String email, String senha, int idade, int id) {
         this.nome = nome;
         this.endereco = endereco;
         this.email = email;
+        this.senha = senha;
         this.idade = idade;
         this.ID = id;
     }
@@ -62,14 +65,24 @@ public class Cliente {
         ID = iD;
     }
 
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    
     public static Cliente fromString(String str) {
         String[] parts = str.split(",");
-        return new Cliente(parts[0], parts[1], parts[2], Integer.parseInt(parts[3]), Integer.parseInt(parts[4]));
+        return new Cliente(parts[0], parts[1], parts[2], parts[3], Integer.parseInt(parts[4]), Integer.parseInt(parts[5]));
     }
 
     @Override
     public String toString() {
-        return nome + "," + endereco + "," + email + "," + idade + "," + ID;
+        return nome + ","  + endereco + "," + email + "," + senha + "," + idade + "," + ID;
     }
+
+
 
 }
