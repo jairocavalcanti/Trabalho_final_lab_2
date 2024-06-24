@@ -1,0 +1,4 @@
+ -- REGISTRO DE VENDAS -
+
+Usu�rio: jairo, Jogo: godofwae, Total a pagar: R$133.0, Data: 24/06/2024 18:04:37
+Usu�rio: jairo, Jogo: godofwae, Total a pagar: R$133.0, Data: 24/06/2024 18:04:39

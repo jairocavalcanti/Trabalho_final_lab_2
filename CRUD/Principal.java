@@ -1,5 +1,6 @@
 package CRUD;
 
+import java.util.Date;
 import java.util.Scanner;
 import java.util.Random;
 import java.io.*;
@@ -11,6 +12,7 @@ public class Principal {
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
 
+        Date date = new Date();
         Random rand = new Random();
         ClienteController cc = new ClienteController();
         JogoController jc = new JogoController();
@@ -41,6 +43,7 @@ public class Principal {
                                 "\n1 -Visualizar Cadastros // \n" +
                                 "2 - Excluir Cadastro // \n" +
                                 "3 - Alterar Cadastro // \n" +
+                                "4 - Cadastrar Jogos // \n" +
                                 "0 - Sair \n");
 
                         System.out.printf(">>");
@@ -51,15 +54,15 @@ public class Principal {
                             case "1":
                                 cc.mostrar_cadastros(cc);
                                 break;
-
                             case "2":
                                 cc.excluir_usuario(cc, scanner);
                                 break;
-
                             case "3":
                                 cc.atualizar_cadastro(scanner, cc);
                                 break;
-
+                            case "4":
+                                jc.cadastro_jogos(jc, scanner, rand);
+                                break;
                             case "0":
                                 System.out.println("Menu ADM encerrado... \n");
                                 i = true;
@@ -102,7 +105,7 @@ public class Principal {
                                     break;
 
                                 case "3":
-                                    jc.retirar_jogo(scanner, jc);
+                                    jc.retirar_jogo(scanner, jc,date);
                                     break;
 
                                 case "0":

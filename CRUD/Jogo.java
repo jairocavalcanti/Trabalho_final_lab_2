@@ -6,28 +6,27 @@ public class Jogo {
 
     private String nome;
     private String genero;
-    private int codigo;
+    private int ID;
     private String plataforma;
     private double valor;
     private int quantidade;
 
     // Construtores da classe jogo
 
-    public Jogo(String nome, String genero, int codigo, String plataforma, double valor, int quantidade) {
+    public Jogo() {
+
+    }
+
+    public Jogo(String nome, String genero, int ID, String plataforma, double valor, int quantidade) {
         this.nome = nome;
         this.genero = genero;
-        this.codigo = codigo;
+        this.ID = ID;
         this.plataforma = plataforma;
         this.valor = valor;
         this.quantidade = quantidade;
     }
 
-    public Jogo() {
-
-    }
-
     // Getters e setters
-
     public String getNome() {
         return this.nome;
     }
@@ -44,12 +43,12 @@ public class Jogo {
         this.genero = genero;
     }
 
-    public int getCodigo() {
-        return this.codigo;
+    public int getID() {
+        return this.ID;
     }
 
-    public void setCodigo(int codigoDoJogo) {
-        this.codigo = codigoDoJogo;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public String getPlataforma() {
@@ -89,9 +88,12 @@ public class Jogo {
                 Integer.parseInt(partes[5]));
     }
 
+    
     @Override
     public String toString() {
-        return nome + "," + genero + "," + codigo + "," + plataforma + "," + valor + "," + quantidade;
+        return nome + "," + genero + "," + ID + "," + plataforma + "," + valor + "," + quantidade;
     }
-
+    
 }
+
+
