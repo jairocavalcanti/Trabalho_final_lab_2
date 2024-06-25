@@ -105,7 +105,7 @@ public class Principal {
                                     break;
 
                                 case "3":
-                                    jc.retirar_jogo(scanner, jc,date);
+                                    jc.retirar_jogo(cc.GetUsuario(),scanner, jc,date);
                                     break;
 
                                 case "0":

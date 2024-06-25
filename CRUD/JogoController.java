@@ -64,7 +64,7 @@ public class JogoController {
         date = new Date();
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(HISTORICO, true))) {
             writer.write(
-            "Usuário: " + nomeUsuario + 
+            "Usuario: " + nomeUsuario + 
             ", Jogo: " + jogo.getNome() + 
             ", Total a pagar: R$" + totalapagar +
             ", Data e Hora: " + dateFormat.format(date));
@@ -136,7 +136,7 @@ public class JogoController {
         System.out.println("---------------------------------- \n");
     }
 
-    public void retirar_jogo(Scanner scanner, JogoController jc, Date date) throws Exception {
+    public void retirar_jogo(String nomede_usuario ,Scanner scanner, JogoController jc, Date date) throws Exception {
         System.out.println("-- MENU DE COMPRAS --");
 
         List<Jogo> jogos_2 = jc.getJogos();
@@ -149,17 +149,14 @@ public class JogoController {
         }
         System.out.println("\n ------------------------------- \n");
 
-        System.out.println("Informe seu nome de usuário: ");
-        String nome_usuario = scanner.next();
-
-        System.out.println("Insira a quantidade de jogos que seja comprar: ");
+        System.out.println("Insira a quantidade de jogos que deseja comprar: ");
         int quantidade = scanner.nextInt();
         
         for(int i = 0; i< quantidade; i++){
         System.out.println("Selecione uma opcao: ");
-        String nome_1 = scanner.next();
+        String opcao_jogo = scanner.next();
 
-        jc.comprar_jogo(nome_1 , nome_usuario, date);
+        jc.comprar_jogo(opcao_jogo , nomede_usuario, date);
         }
 
     }

@@ -1,2 +1,2 @@
-JAJA,JJJJ,436,JJJJ,123.0,105
-godofwae,luta,101,corno,133.0,1329
+JAJA,JJJJ,436,JJJJ,123.0,96
+godofwae,luta,101,corno,133.0,1321

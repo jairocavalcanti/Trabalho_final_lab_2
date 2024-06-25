@@ -9,6 +9,11 @@ import java.util.List;
 public class ClienteController {
 
     private static final String FILE_NAME = "pessoas.txt";
+    private Cliente usuario;
+
+    public String GetUsuario(){
+        return this.usuario.getNome();
+    }
 
     // METODOS PARA MANIPULAÇÃO DE PESSOAS
     public void addPessoa(Cliente pessoa) throws Exception {
@@ -70,6 +75,7 @@ public class ClienteController {
                     && p.getSenha().equals(senha_1)) {
                 verif = true;
                 System.out.println("Nome verificado nos cadastros com sucesso!");
+                this.usuario = p;
                 break;
             } else {
                 verif = false;
