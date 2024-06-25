@@ -136,7 +136,7 @@ public class JogoController {
         System.out.println("---------------------------------- \n");
     }
 
-    public void retirar_jogo(String nomede_usuario ,Scanner scanner, JogoController jc, Date date) throws Exception {
+    public void retirar_jogo(String nome_de_usuario ,Scanner scanner, JogoController jc, Date date) throws Exception {
         System.out.println("-- MENU DE COMPRAS --");
 
         List<Jogo> jogos_2 = jc.getJogos();
@@ -156,7 +156,7 @@ public class JogoController {
         System.out.println("Selecione uma opcao: ");
         String opcao_jogo = scanner.next();
 
-        jc.comprar_jogo(opcao_jogo , nomede_usuario, date);
+        jc.comprar_jogo(opcao_jogo , nome_de_usuario, date);
         }
 
     }
