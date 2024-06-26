@@ -137,6 +137,7 @@ public class ClienteController {
         System.out.printf("Insira o ID do cliente que deseja atualizar: ");
         int id = scanner.nextInt();
 
+        int indice = 0;
         for (Cliente c : clientes) {
             if (c.getID() == id) {
 
@@ -202,8 +203,11 @@ public class ClienteController {
 
                 System.out.println("--------------------------------- \n");
 
+                break;
+
             } else {
-                System.out.println("ID nao existente no sistema!");
+                indice++;
+                System.out.println("ID não existente no cadastro " + indice + " !");
 
                 System.out.println("--------------------------------- \n");
             }
