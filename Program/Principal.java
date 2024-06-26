@@ -1,7 +1,11 @@
-package CRUD;
+package Program;
 
 import java.util.Date;
 import java.util.Scanner;
+
+import CRUD.ClienteController;
+import CRUD.JogoController;
+
 import java.util.Random;
 import java.io.*;
 
